@@ -19,6 +19,8 @@ function App() {
         return <LoggedIn />;
       case 3:
         return <SignedUp />;
+      default:
+        return <Login />;
     }
   };
 
