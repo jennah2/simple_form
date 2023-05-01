@@ -46,9 +46,14 @@ body {
   opacity: 0.8;
 }
 
-.text a {
+.text span {
   text-decoration: none;
   color: #3a51a3;
+  cursor: pointer;
+}
+
+.text span:hover {
+  text-decoration: underline;
 }
 
 .text {
