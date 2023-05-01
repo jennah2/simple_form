@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import LoggedIn from "./components/LoggedIn";
+import SignedUp from "./components/SignedUp";
+import { useState, createContext } from "react";
+
+export const SwitchPageContext = createContext();
 
 function App() {
+  const [login, setLogin] = useState(0);
+
+  const switchPageFunction = () => {
+    switch (login) {
+      case 0:
+        return <Login />;
+      case 1:
+        return <SignUp />;
+      case 2:
+        return <LoggedIn />;
+      case 3:
+        return <SignedUp />;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SwitchPageContext.Provider value={{ login, setLogin }}>
+      {switchPageFunction()}
+    </SwitchPageContext.Provider>
   );
 }
 
